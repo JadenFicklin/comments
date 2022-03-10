@@ -4,11 +4,13 @@ const cors = require("cors");
 const { PORT } = process.env;
 const { DATABASE_URL } = process.env;
 const Sequelize = require("sequelize");
+// const path = require('path');
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+// app.use(express.static(path.join(__dirname, "/public/")));
 
 const sequelize = new Sequelize(DATABASE_URL, {
   dialect: "popstgres",
@@ -18,6 +20,10 @@ const sequelize = new Sequelize(DATABASE_URL, {
     },
   },
 });
+
+// app.get("*", (req, res) => {
+//   app.set();
+// });
 
 app.post("/api/addComment", async (req, res) => {
   //get user data from request object

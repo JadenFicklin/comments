@@ -8,7 +8,7 @@ function Comments() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:5000/api/getComment",
+      url: "https://comments-f16.herokuapp.com/api/getComment",
     })
       .then((res) => setArray(res.data))
       .catch((err) => console.log(err));
@@ -24,7 +24,7 @@ function Comments() {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/addComment",
+      url: "https://comments-f16.herokuapp.com/api/addComment",
       data: {
         comment: comment,
       },
